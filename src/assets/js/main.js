@@ -38,3 +38,23 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         }
         
     });
+
+    async function verseLookup() {
+        var verse = document.getElementById("search").value;
+        var headings = "true"
+        var extras = "true"
+        var numbers = "true"
+        var url = "/api?verse=" + verse + "&headings=" + headings + "&extras=" + extras + "&numbers=" + numbers; 
+        fetch(url)
+           .then(response => response.text())
+            .then(data => {
+                document.getElementById("verse").innerHTML = data;
+            });
+    }
+
+    var inputField = document.getElementById('search');
+    inputField.addEventListener('keydown', function(event) {
+        if (event.key === "Enter") {
+            verseLookup();
+        }
+    });

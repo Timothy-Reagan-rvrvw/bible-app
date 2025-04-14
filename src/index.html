@@ -11,8 +11,7 @@
   <nav class="dark:border-stone-450 border-violet-400 border-b-3
  flex justify-between items-center dark:text-stone-200">
  <div class="p-2">
-<a href="/" class="text-2xl dark:hover:bg-violet-600 p-2 ">home</a>
-<a href="/about.html" class="text-2xl dark:hover:bg-violet-600 p-2">about</a>
+  <input class="dark:bg-gray-800 dark:text-white border-2 dark:border-gray-600 px-2 py-1 mt-2" type="text"  id ="search" name="search" placeholder="John 3:16-21" />
   </div>
   <div class="px-4 items-center">
   <button id="theme-toggle" type="button" class="">
@@ -26,8 +25,13 @@
   <h1 class="text-3xl font-bold underline">
     Hello My Beautiful Class
   </h1>
-  <input class="dark:bg-gray-800 dark:text-white border-2 dark:border-gray-600 px-2 py-1 mt-2" type="text"  id ="search" name="search" placeholder="John 3:16-21">
-  <div id="verse"></div>
+  <input type="checkbox" id="headings" name="headings" checked>
+  <label for="headings">Headings</label><br>
+  <input type="checkbox" id="extras" name="extras" checked>
+  <label for="extras">Extras</label><br>
+  <input type="checkbox" id="numbers" name="numbers" checked>
+  <label for="numbers">Numbers</label><br>
+    <div id="verse"></div>
 </main>
   
   <script src="/assets/js/main.js"></script>

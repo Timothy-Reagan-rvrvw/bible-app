@@ -50,6 +50,7 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             .then(data => {
                 document.getElementById("verse").innerHTML = data;
             });
+            window.scrollTo(0,0);
     }
 
     var inputField = document.getElementById('search');

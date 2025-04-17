@@ -8,8 +8,8 @@
   <title>bible app</title>
 </head>
 <body class="flex bg-lime-400 dark:text-violet-950 dark:bg-emerald-600 text--900 justify-center">
-  <nav class="min-w-full fixed top-0 left-0 right-0 z-50 dark:border-violet-450 dark:bg-emerald-600 border-violet-400 border-b-3
- flex justify-between items-center dark:text-violet-200">
+  <nav class="min-w-full fixed top-0 left-0 right-0 z-50 dark:border-violet-450 dark:bg-emerald-600 border-violet-400 border-b-3 
+ flex justify-between items-center dark:text-violet-200 bg-lime-400">
  <div class="p-2">
   <input class="dark:bg-violet-800 dark:text-white border-2 dark:border-violet-600 px-2 py-1 mt-2" type="text"  id ="search" name="search" placeholder="John 3:16-21" />
   </div>
@@ -21,7 +21,7 @@
 </div>
 </nav>
 
-<main class="container mx-auto max-w-8/10 pt-16 relative">
+<main class="container mx-auto max-w-8/10 pt-16 relative min-h-screen overflow-y-scroll max-h-screen no-scrollbar">
   <h1 class="text-3xl font-bold underline">
     Hello My Beautiful Class
   </h1>
@@ -51,7 +51,8 @@
   </div>
     <div id="verse"></div>
 </main>
-<sidebar class="pt-16 px-4">
+<sidebar class="pt-16 px-4 border-l-2 border-neutral-950 dark:border-violet-950
+ min-h-screen overflow-y-scroll max-h-screen no-scrollbar max-w-xs min-w-xs">
   this my sidebar
 </sidebar>
   

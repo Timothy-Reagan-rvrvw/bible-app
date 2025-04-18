@@ -85,15 +85,16 @@ func ApiRequestHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(result)
 	//w.Write([]byte("<html><head><meta charset=\"UTF-8\"></head><body>"))
-	for _, str := range result.Passages {
-		_, err := w.Write([]byte(str + "\n")) // Add newline for separation
-		if err != nil {
-			http.Error(w, "Error writing to response", http.StatusInternalServerError)
-			return
-		}
-		// log.Println(str)
-	}
+	//for _, str := range result.Passages {
+	//_, err := w.Write([]byte(str + "\n")) // Add newline for separation
+	//if err != nil {
+	//	http.Error(w, "Error writing to response", http.StatusInternalServerError)
+	//	return
+	//}
+	// log.Println(str)
+	//}
 	//w.Write([]byte("</body></html>"))
 
 }

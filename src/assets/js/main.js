@@ -38,6 +38,10 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         }
         
     });
+    function useHistory(verse) {
+        document.getElementById("search").value = verse;
+        verseLookup();
+    }
 
     async function verseLookup() {
         var verse = document.getElementById("search").value;

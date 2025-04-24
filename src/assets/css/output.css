@@ -222,8 +222,8 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
-  .z-50 {
-    z-index: 50;
+  .z-5 {
+    z-index: 5;
   }
   .container {
     width: 100%;
@@ -277,6 +277,9 @@
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
   .w-11 {
     width: calc(var(--spacing) * 11);
   }
@@ -292,6 +295,9 @@
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -534,6 +540,38 @@ h3 {
     scrollbar-width: none;
   }
 }
+#body-overlay {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+.real-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  z-index: 6;
+  width: 300px;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 12px rgba(107, 82, 106, 0.3);
+  background-color: white;
+  overflow-y: auto	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: ease 0.2s all;
+}
+body.menu-open #body-overlay {
+  display: block;
+}
+body.menu-open .real-menu {
+  right: 0;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -548,6 +586,31 @@ h3 {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
 }
 @property --tw-border-style {
   syntax: "*";

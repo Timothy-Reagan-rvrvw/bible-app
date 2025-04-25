@@ -39,6 +39,14 @@ h3 {
 	@apply dark:text-violet-950 text-neutral-900 text-sm px-1;
 }
 
+.highlighted {
+	@apply bg-cyan-900 dark:bg-green-950 dark:text-violet-600;
+}
+
+.verse a {
+	scroll-margin: 53px;
+}
+
 @layer utilities {
 	.no-scrollbar::-webkit-scrollbar {
 		display: none;

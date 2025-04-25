@@ -9,7 +9,9 @@
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-red-900: oklch(0.396 0.141 25.723);
     --color-lime-400: oklch(0.841 0.238 128.85);
+    --color-green-950: oklch(0.266 0.065 152.934);
     --color-emerald-600: oklch(0.596 0.145 163.225);
+    --color-cyan-900: oklch(0.398 0.07 227.392);
     --color-violet-100: oklch(0.943 0.029 294.588);
     --color-violet-200: oklch(0.894 0.057 293.283);
     --color-violet-300: oklch(0.811 0.111 293.571);
@@ -530,6 +532,18 @@ h3 {
   &:where(.dark, .dark *) {
     color: var(--color-violet-950);
   }
+}
+.highlighted {
+  background-color: var(--color-cyan-900);
+  &:where(.dark, .dark *) {
+    background-color: var(--color-green-950);
+  }
+  &:where(.dark, .dark *) {
+    color: var(--color-violet-600);
+  }
+}
+.verse a {
+  scroll-margin: 53px;
 }
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {

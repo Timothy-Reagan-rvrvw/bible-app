@@ -61,7 +61,7 @@ h3 {
 	height: 100vh;
 	display: none;
 	position: fixed;
-	z-index: 3;
+	z-index: 6;
 	top: 0;
 	right: 0;
 	overflow: hidden;
@@ -72,12 +72,11 @@ h3 {
 	position: fixed;
 	top: 0;
 	right: -300px;
-	z-index: 6;
+	z-index: 7;
 	width: 300px;
 	height: 100%;
 	padding: 0.5rem 1rem;
 	box-shadow: 0 6px 12px rgba(107, 82, 106, 0.3);
-	background-color: white;
 	overflow-y: auto
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;

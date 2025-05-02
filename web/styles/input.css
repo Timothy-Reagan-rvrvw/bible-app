@@ -40,7 +40,7 @@ h3 {
 }
 
 .highlighted {
-	@apply bg-cyan-900 dark:bg-green-950 dark:text-violet-600;
+	@apply bg-cyan-900 dark:bg-cyan-950 dark:text-violet-600;
 }
 
 .verse a {

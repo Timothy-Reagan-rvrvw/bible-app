@@ -1,3 +1,5 @@
+var buttonClicked = ""
+var allowHighlighting = false;
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     
@@ -79,6 +81,9 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             });
             window.scrollTo(0,0);
     }
+
+
+
     
     function wrapText() {
         const anchors = document.querySelectorAll("a.va");
@@ -112,6 +117,7 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     
             // Add click-to-highlight functionality
             wrapper.addEventListener("click", () => {
+                if (allowHighlighting) {
                 wrapper.classList.toggle("highlighted");
                 const id = wrapper.getAttribute("data-verse");
                 if (wrapper.classList.contains("highlighted")) {
@@ -121,8 +127,19 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
                     console.log(`Unhighlighted: ${id}`);
                     // Remove it from your backend
                 }
+                }
             });
         });
+    }
+
+
+    function HighlightButtonClick() {
+        if (allowHighlighting) {
+            allowHighlighting = false;
+        } else {
+            allowHighlighting = true;
+        }
+
     }
     
 

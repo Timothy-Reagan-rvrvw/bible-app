@@ -1,5 +1,6 @@
 var buttonClicked = ""
 var allowHighlighting = false;
+var highLightColor =""
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     
@@ -118,7 +119,7 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             // Add click-to-highlight functionality
             wrapper.addEventListener("click", () => {
                 if (allowHighlighting) {
-                wrapper.classList.toggle("highlighted");
+                wrapper.classList.toggle(highLightColor);
                 const id = wrapper.getAttribute("data-verse");
                 if (wrapper.classList.contains("highlighted")) {
                     console.log(`Highlighted: ${id}`);
@@ -133,11 +134,15 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     }
 
 
-    function HighlightButtonClick() {
-        if (allowHighlighting) {
+    function HighlightButtonClicked(me) {
+        console.log(me.id);
+        if (allowHighlighting && me.id === buttonClicked) {
             allowHighlighting = false;
         } else {
+            buttonClicked = me.id;
             allowHighlighting = true;
+            highLightColor = "bg-" + me.id.split("-")[1] + "-600";
+            console.log(highLightColor);
         }
 
     }

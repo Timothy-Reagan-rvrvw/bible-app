@@ -140,6 +140,9 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
                 if (allowHighlighting) {
                     if (hasClass(wrapper, highLightColor)) {
                         removeClass(wrapper, highLightColor);
+                        wrapper.children.forEach((child) => {
+                            if(hasClass)
+
                     } else {
                         highLightColors.forEach((color) => {
                             removeClass(wrapper, color);
@@ -154,9 +157,16 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 
     function HighlightButtonClicked(me) {
         console.log(me.id);
+        var buttons = document.querySelectorAll(".highlight-button");
+        buttons.forEach((button) => {
+            removeClass(button, "border-stone-200");
+            addClass(button, "border-transparent");
+        });
         if (allowHighlighting && me.id === buttonClicked) {
             allowHighlighting = false;
         } else {
+            removeClass(me, "border-transparent");
+            addClass(me, "border-stone-200");
             buttonClicked = me.id;
             allowHighlighting = true;
             highLightColor = "bg-" + me.id.split("-")[1] + "-600";

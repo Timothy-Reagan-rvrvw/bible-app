@@ -137,21 +137,37 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     
             // Add click-to-highlight functionality
             wrapper.addEventListener("click", () => {
-                if (allowHighlighting) {
-                    if (hasClass(wrapper, highLightColor)) {
-                        removeClass(wrapper, highLightColor);
-                        wrapper.children.forEach((child) => {
-                            if(hasClass)
 
-                    } else {
-                        highLightColors.forEach((color) => {
-                            removeClass(wrapper, color);
-                        });
-                        addClass(wrapper, highLightColor);
-                   }
-                }
             });
         });
+    }
+
+
+    function highlightWrapper(wrapper) { 
+               const children = wrapper.children;
+
+        if (allowHighlighting) {
+            if (hasClass(wrapper, highLightColor)) {
+                removeClass(wrapper, highLightColor);
+               for (child of children) {
+                    if(hasClass(child, "woc-highlighted")){
+                        removeClass(child, "woc-highlighted");
+                        addClass(child, "woc");
+                    }
+                }
+            } else {
+                highLightColors.forEach((color) => {
+                    removeClass(wrapper, color);
+                });
+                addClass(wrapper, highLightColor);
+                for (child of children) {
+                    if(hasClass(child, "woc")){
+                        removeClass(child, "woc");
+                        addClass(child, "woc-highlighted");
+                   }
+                }
+           }
+        }
     }
 
 

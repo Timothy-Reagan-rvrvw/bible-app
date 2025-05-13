@@ -20,6 +20,15 @@ const highLightColors = [
     "bg-sky-600",
 ]
 
+var highlightedVerses ={
+    "v43003016": "bg-red-600"
+     "v43003017": "bg-red-600"
+      "v43003018": "bg-red-600"
+       "v43003019": "bg-red-600"
+        "v43003020": "bg-red-600"
+         "v43003021": "bg-red-600"
+};
+
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     
@@ -114,6 +123,11 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             if (verseId) {
                 wrapper.setAttribute("data-verse", verseId);
             }
+
+            //Check if the verse is in the highlightedVerses array
+           if (highlightedVerses.includes[verseId]) {
+            console.log("highlighting verse:", verseId);
+           }
     
             let current = anchor;
             const parent = anchor.parentNode;
@@ -137,7 +151,7 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     
             // Add click-to-highlight functionality
             wrapper.addEventListener("click", () => {
-
+                highlightWrapper(wrapper);
             });
         });
     }
@@ -175,14 +189,16 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         console.log(me.id);
         var buttons = document.querySelectorAll(".highlight-button");
         buttons.forEach((button) => {
-            removeClass(button, "border-stone-200");
+            removeClass(button, "dark:border-violet-950");
+            removeClass(button, "border-neutral-900");
             addClass(button, "border-transparent");
         });
         if (allowHighlighting && me.id === buttonClicked) {
             allowHighlighting = false;
         } else {
             removeClass(me, "border-transparent");
-            addClass(me, "border-stone-200");
+            addClass(me, "dark:border-violet-950");
+            addClass(me, "border-neutral-900");
             buttonClicked = me.id;
             allowHighlighting = true;
             highLightColor = "bg-" + me.id.split("-")[1] + "-600";

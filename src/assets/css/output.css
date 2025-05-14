@@ -36,7 +36,6 @@
     --color-rose-600: oklch(0.586 0.253 17.585);
     --color-neutral-900: oklch(0.205 0 0);
     --color-neutral-950: oklch(0.145 0 0);
-    --color-stone-200: oklch(0.923 0.003 48.717);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -358,11 +357,11 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 2px;
   }
+  .border-neutral-900 {
+    border-color: var(--color-neutral-900);
+  }
   .border-neutral-950 {
     border-color: var(--color-neutral-950);
-  }
-  .border-stone-200 {
-    border-color: var(--color-stone-200);
   }
   .border-transparent {
     border-color: transparent;

@@ -21,12 +21,9 @@ const highLightColors = [
 ]
 
 var highlightedVerses ={
-    "v43003016": "bg-red-600"
-     "v43003017": "bg-red-600"
-      "v43003018": "bg-red-600"
-       "v43003019": "bg-red-600"
-        "v43003020": "bg-red-600"
-         "v43003021": "bg-red-600"
+    "v43003016": "bg-red-600",
+       "v43003019": "bg-red-600",
+         "v43003021": "bg-red-600",
 };
 
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -124,10 +121,7 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
                 wrapper.setAttribute("data-verse", verseId);
             }
 
-            //Check if the verse is in the highlightedVerses array
-           if (highlightedVerses.includes[verseId]) {
-            console.log("highlighting verse:", verseId);
-           }
+         
     
             let current = anchor;
             const parent = anchor.parentNode;
@@ -151,13 +145,26 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     
             // Add click-to-highlight functionality
             wrapper.addEventListener("click", () => {
-                highlightWrapper(wrapper);
+                highlightWrapper(wrapper, highLightColor);
+                var verseId = wrapper.getAttribute("data-verse");
+                if (highlightedVerses[verseId] && highlightedVerses[verseId] === highLightColor) {
+                    delete highlightedVerses[verseId];
+                } else {
+                    highlightedVerses[verseId] = highLightColor;
+                }
             });
+               //Check if the verse is in the highlightedVerses array
+           if (highlightedVerses[verseId]) {
+            console.log("highlighting verse:", verseId);
+            allowHighlighting = true;
+            highlightWrapper(wrapper, highlightedVerses[verseId]);
+            allowHighlighting = false;
+           }
         });
     }
 
 
-    function highlightWrapper(wrapper) { 
+    function highlightWrapper(wrapper, highLightColor) { 
                const children = wrapper.children;
 
         if (allowHighlighting) {

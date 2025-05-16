@@ -96,6 +96,11 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         var headings = document.getElementById("headings").checked;
         var extras = document.getElementById("extras").checked;
         var numbers = document.getElementById("numbers").checked;
+
+        if (verse.match(/(\d+)/)) {
+
+        
+
         var url = "/api?verse=" + verse + "&headings=" + headings + "&extras=" + extras + "&numbers=" + numbers; 
         fetch(url)
            .then(response => response.json())
@@ -105,7 +110,20 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
                createHistory();
                wrapText();
             });
-            window.scrollTo(0,0);
+           
+        } else {
+            var url = "/search?search=" + verse;
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+            data.results.forEach(verse => {
+                document.getElementById("verse").innerHTML += data.results.forEach(verse => {
+                    return `<p>$`
+                });
+
+            });
+        }
+        window.scrollTo(0,0);
     }
 
 

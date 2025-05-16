@@ -45,8 +45,9 @@ func SearchRequestHandler(w http.ResponseWriter, r *http.Request) {
 	params.Add("q", search)
 	params.Add("page", fmt.Sprintf("%d", page))
 	params.Add("page-size", fmt.Sprintf("%d", pageSize))
-	api_key := os.Getenv("API_KEY")urlWithParams := 
-	baseURL + "?" + params.Encode()
+	api_key := os.Getenv("API_KEY")
+	baseURL := "https://api.esv.org/v3/passage/search/"
+	urlWithParams := baseURL + "?" + params.Encode()
 
 	// log.Println(urlWithParams)
 	req, err := http.NewRequest("GET", urlWithParams, nil)
@@ -66,7 +67,7 @@ func SearchRequestHandler(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
-	var result SearchResponce
+	var result SearchResponse
 	if err := json.Unmarshal(body, &result); err != nil { // Parse []byte to go struct pointer
 		fmt.Println("Can not unmarshal JSON")
 	}

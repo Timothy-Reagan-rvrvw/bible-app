@@ -116,11 +116,15 @@ var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             fetch(url)
             .then(response => response.json())
             .then(data => {
-            data.results.forEach(verse => {
-                document.getElementById("verse").innerHTML += data.results.forEach(verse => {
-                    return `<p>$`
-                });
-
+           let html = '<ul>';
+           data.results.forEach(obj => {
+             html += "<li><button class=\"cursor-pointer underline\" onclick=\"useHistory('" + obj.reference + "')\">"+ obj.reference + "</button>"
+            html += ` -- ${obj.content}</li>`;
+           });
+           html += '</ul>';
+           document.getElementById("verse").innerHTML = html;
+           searchHistory.add(verse);
+           createHistory();
             });
         }
         window.scrollTo(0,0);

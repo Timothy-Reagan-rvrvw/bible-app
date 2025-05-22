@@ -36,6 +36,27 @@ type SearchResponse struct {
 	} `json:"results"`
 }
 
+type Verse struct {
+	Reference string `json:"reference"`
+	Color     string `json:"color"`
+}
+
+type HighlightedVersesResponce struct {
+	Verses []Verse `json:"verses"`
+} // {verses: [{"reference": "v43003016","color": "bg-red-500"}]}
+
+func HighlightedVersesHandler(w http.ResponseWriter, r *http.Request) {
+
+	result := HighlightedVersesResponce{
+		Verses: []Verse{
+			Verse{Reference: "v43003016", Color: "bg-red-500"}},
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(result)
+
+}
+
 func SearchRequestHandler(w http.ResponseWriter, r *http.Request) {
 	p := r.URL.Query()
 	search := p.Get("search")
